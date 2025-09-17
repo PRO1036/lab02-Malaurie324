@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
-author: "Votre nom"
-date: "La date"
+author: "Malaurie Audet"
+date: "22 septembre 2025"
 output: github_document
 ---
 
@@ -28,16 +28,24 @@ plastic_waste <- plastic_waste %>%
 ### Exercise 1
 
 ```{r plastic-waste-continent}
-# insert code here
-```
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2)+
+  facet_grid(.~continent)
+plastic_waste <- plastic_waste %>%
+  filter(plastic_waste_per_cap < 3.5)
 
+```
+ 
+ On peut dire que l'Afrique et l'Asie ont un plus faible taux de déchets plastiques par habitants, qui ce situe majoritairement entre 0 et 0,1. L'Europe, l'Amérique du Nord et l'Océanie ont plutot des taux entre 0,125 et 0,25. L'Amérique du Sud à aussi un taux entre 0,125 et 0,25, cependant, il y en a beaucoup moins. 
+ 
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap,fill=continent)) +
+  geom_density(alpha=0.4)
 ```
 
-Réponse à la question...
+Le reglage de la couleur est dans aes() puisque les paramètres doivent être associé à des données, par example, les données de chaque continents ont été associé à une certaines couleurs. Dans le cas d'alpha, ceci contrôle la transparence de tout les continents,ça ne doit, donc pas être liéé au données.
 
 ### Exercise 3
 
