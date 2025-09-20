@@ -52,22 +52,25 @@ Le reglage de la couleur est dans aes() puisque les paramètres doivent être as
 Boxplot:
 
 ```{r plastic-waste-boxplot}
-# insert code here
+ggplot(data = plastic_waste, aes(y = plastic_waste_per_cap,x=continent)) +
+  geom_boxplot()
 ```
 
 Violin plot:
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(data = plastic_waste, aes(y = plastic_waste_per_cap,x=continent)) +
+  geom_violin()
 ```
 
-Réponse à la question...
+Les violin plots donnent une meilleure représentation de données grâce aux différentes épaisseurs tout au long du violon. Les boxplot montrés plutôt où la majorité se situe, mais moins précisément. 
 
 ### Exercise 4
 
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap,y=mismanaged_plastic_waste_per_cap,color=continent)) +
+  geom_point()
 ```
 
 Réponse à la question...
@@ -76,11 +79,13 @@ Réponse à la question...
 
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap,y=total_pop)) +
+  geom_point()
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap,y=coastal_pop)) +
+  geom_point()
 ```
 
 Réponse à la question...
@@ -90,5 +95,10 @@ Réponse à la question...
 Recréez la visualisation:
 
 ```{r recreate-viz}
-# insert code here
+plastic_waste_coastal <- plastic_waste %>% 
+  mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
+  filter(plastic_waste_per_cap < 3)
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap,y=coastal_pop,color=continent)) +
+  geom_point()
+  labs(title="Quantité de déchets plastiques vs Proportion de la population côtière",continent="Continent",x="Proportion de la population côtière(Coastal/total population)",y="Nombre de déchets plastiques par habitant",subtitle="Selon le continent")
 ```
