@@ -73,7 +73,7 @@ ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap,y=mismanaged_plastic_
   geom_point()
 ```
 
-Réponse à la question...
+On peut voir qu'il y a une relation positive mais non linéaire, car lorsqu'un continent augmente selon une variable il y a aussi une augmentation selon l'autre variable. Cependant, on peut voir que chaque continent suis une tendance differente, par exemple, l'Afrique, l'Asie et l'Océanie on une quantité de déchets non gérés significativement plus élevé en fonction des déchets totaux. On peut voir que même lorsque les déchets augmente en Amérique du Nord et l'Europe,leur déchets non gérés ne monte pas aussi rapidement qu'en Afrique, Asie et Océanie.
 
 ### Exercise 5
 
@@ -88,7 +88,7 @@ ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap,y=coastal_pop)) +
   geom_point()
 ```
 
-Réponse à la question...
+Dans les deux graphiques les données sont quand mêmes très similaire en x, cependant, on peut voir que les y monte beaucoup plus haut, ceci montre que peut importe là taille de la population la relation sera assez similaire. 
 
 ## Conclusion
 
