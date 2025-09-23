@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
 author: "Malaurie Audet"
-date: "22 septembre 2025"
+date: "22 septembre"
 output: github_document
 ---
 
